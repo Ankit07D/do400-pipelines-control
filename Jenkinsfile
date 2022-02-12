@@ -15,8 +15,13 @@ parameters {
         }
         stage('Frontend Tests') {
 when { expression { params.RUN_FRONTEND_TESTS } }
+
+input {
+                message 'Deploy the application?'
+            }
+
             steps {
-                sh 'node ./frontend/test.js'
+                echo 'Deploying...'
             }
         }
     }
